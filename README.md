@@ -128,7 +128,7 @@ Expected: `422 Unprocessable Entity` — Room ID does not exist.
 
 # Conceptual Report
 
-# Part 1: Service Architecture & Setup
+### Part 1: Service Architecture & Setup
 
 Q: Explain the default lifecycle of a JAX-RS Resource class and how it impacts in-memory data management.
 
@@ -144,7 +144,7 @@ HATEOAS (Hypermedia as the Engine of Application State) means that API responses
 1. Decoupling: Clients do not hardcode URLs. If the server changes a path, clients following links continue to work without modification.
 2. Discoverability: A developer starting at the root endpoint (`GET /api/v1`) immediately learns what resources exist and where to find them — the API becomes self-documenting at runtime. This reduces the need to maintain separate, potentially outdated API documentation.
 
-# Part 2: Room Management
+### Part 2: Room Management
 
 Q: When returning a list of rooms, what are the implications of returning only IDs versus returning full room objects?
 
@@ -161,7 +161,7 @@ Second DELETE on the same (now non-existent) room: The room is already gone; the
 The final state is always the same: the room does not exist. This satisfies the HTTP specification's definition of idempotency. My implementation intentionally returns `204` (not `404`) on repeat deletions to make this idempotent behaviour explicit and predictable for clients.
 
 
-# Part 3: Sensor Operations & Linking
+### Part 3: Sensor Operations & Linking
 
 Q: What happens if a client sends data in a format other than JSON to a method annotated with `@Consumes(MediaType.APPLICATION_JSON)`?
 
