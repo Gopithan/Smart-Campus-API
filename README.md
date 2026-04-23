@@ -6,6 +6,7 @@ A robust, scalable RESTful API built with JAX-RS (Jersey) and an embedded Grizzl
 
 The API follows a clean hierarchical resource model reflecting the physical structure of the campus:
 
+```
 /api/v1
 ├── /rooms
 │   ├── GET    /           → List all rooms
@@ -20,6 +21,7 @@ The API follows a clean hierarchical resource model reflecting the physical stru
     └── /{sensorId}/readings
         ├── GET  /                     → Get reading history for a sensor
         └── POST /                     → Append a new reading (updates sensor's currentValue)
+```
 
 # Technology Stack
 Component - Technology 
@@ -215,7 +217,7 @@ Exposing raw stack traces is a serious security vulnerability for several reason
 The `GlobalExceptionMapper` in this project prevents all of this by catching any `Throwable`, logging it server-side only, and returning a clean, generic `500 Internal Server Error` JSON body — giving the attacker nothing useful.
 
 # Project Structure
-
+```
 smart-campus-api/
 ├── src/main/java/com/mycompany/smart/campus/api/
 │   ├── Main.java                          # Grizzly server bootstrap
@@ -243,10 +245,9 @@ smart-campus-api/
 │   └── filters/
 │       └── LoggingFilter.java             # Request/response logging
 └── pom.xml
-
+```
 
 # Author
-
 Krishnakumar Shangopithasarma
 Student ID: w2152963
 Module: 5COSC022W — Client-Server Architectures
